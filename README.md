@@ -32,8 +32,10 @@ The dataset is a subsampled version of the CSE-CIC-IDS2018, CICIDS2017, and CIC 
 ![image](https://user-images.githubusercontent.com/41315903/172191979-68503b45-53db-402d-a32a-4b8553fcdb2a.png)
 
 Clearly, the AdaBoost Classifer stood out with 99.9% accuracy. Below is it's confusion matrix:
+
 ![image](https://user-images.githubusercontent.com/41315903/172192168-6442e3a7-3b40-4e96-ae6d-09de6544ef3b.png)
 
 And here is the classification report:
+
 ![image](https://user-images.githubusercontent.com/41315903/172200284-66351563-11de-46e0-be1d-464b9205b828.png)
 
