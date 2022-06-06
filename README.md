@@ -1,2 +1,2 @@
-# Detection of DDoS Attacks
+# Detection of DDoS Attacks using Machine Learning
 
