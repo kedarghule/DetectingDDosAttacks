@@ -14,28 +14,44 @@ The dataset is a subsampled version of the CSE-CIC-IDS2018, CICIDS2017, and CIC 
 - Data was sorted by Timestamp.
 - Any unneccessary columns were dropped.
 - Check for missing values was performed.
+- Check for class imbalance.
+
+  ![image](https://user-images.githubusercontent.com/41315903/173917041-920d3a10-3043-42cb-9a42-ab0ea91075c1.png)
+  
+  We can see that there is class imbalance present and this needs to be handled.
 
 ## Feature Engineering
 
 - ML Models cannot handle IP addresses. IP addresses were handled as follows:
   Eg: 192.168.4.4 was divided into four columns separated at "."
-- Label Encoding the target variable.
+- Label Encoding the target variable. 1 stands for DDoS attack and 0 for benign.
+
+## Handling Class Imbalance And Splitting the Data
+
+Since we have over 100K samples in the minority class, we can use random undersampling as our approach to handle class imbalance. `RandomUnderSampler` from the `imblearn.under_sampling` library. After this, we split the data: 70% training set and 30% test data.
 
 ## Machine Learning
 
-4 ML Models were used and their accuracies were noted.
-- Logistic Regression: 0.68225
-- Random Forest: 0.73365
-- KNN: 0.67754
-- AdaBoost: 0.99999
+4 ML Models were used and their ROC AUC Scores were noted.
+- Logistic Regression: 0.9904716509939988
+- Random Forest: 0.9999999856560075
+- KNN: 0.9998091214573287
+- AdaBoost: 0.9999991923228831
 
-![image](https://user-images.githubusercontent.com/41315903/172191979-68503b45-53db-402d-a32a-4b8553fcdb2a.png)
+Furthermore, their accuracies were noted too:
+- 'Logistic Regression': 0.9592333333333334
+- 'Random Forest': 0.9999666666666667
+- 'KNN': 0.9987833333333334
+- 'AdaBoost': 0.9997
 
-Clearly, the AdaBoost Classifer stood out with 99.9% accuracy. Below is it's confusion matrix:
+The better option among these classifiers is Random Forest eventhough all of them perform well.
 
-![image](https://user-images.githubusercontent.com/41315903/172192168-6442e3a7-3b40-4e96-ae6d-09de6544ef3b.png)
+Below is the Confusion Matrix for the Random Forest Classifier:
 
-And here is the classification report:
+![image](https://user-images.githubusercontent.com/41315903/173928475-b9c66f36-fdcc-441d-bd26-e70a09e6bb37.png)
 
-![image](https://user-images.githubusercontent.com/41315903/172200284-66351563-11de-46e0-be1d-464b9205b828.png)
+Below is the Precision-Recall Curve:
+ 
+![image](https://user-images.githubusercontent.com/41315903/173929356-fad31417-8486-4827-a5dc-7f06f8b5a3b8.png)
+
 
